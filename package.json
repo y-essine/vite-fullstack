@@ -6,7 +6,9 @@
   "scripts": {
     "server": "nodemon server.js --ignore 'client/' ",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server.js",
+    "build": "npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
