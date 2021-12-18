@@ -74,7 +74,7 @@
 
 import axios from 'axios'
 
-let back_server = 'https://vitestack.herokuapp.com';
+let back_server = 'https://vitestack.herokuapp.com' ;
 
 
 export default {
