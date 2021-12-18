@@ -8,12 +8,12 @@
             <i class="fas fa-circle-notch fa-spin fa-5x"></i>
         </span>
     </transition>
-    <div class="m-14 space-y-8">
-        <div class="flex justify-between">
-            <div class="space-y-6">
+    <div class="m-6 space-y-3.5">
+        <div class="sm:flex justify-between">
+            <div>
                 <h1 class="font-extrabold text-red-500 text-3xl">Todos</h1>
             </div>
-            <div class="space-x-5">
+            <div class="space-x-5 space-y-3">
                 <input
                     v-model="description"
                     type="text"
@@ -74,7 +74,11 @@
 
 import axios from 'axios'
 
-let back_server = 'https://vitestack.herokuapp.com' ;
+let online = true;
+
+let offline_server = 'http://localhost:3000' ;
+
+let back_server = online ? '' : offline_server;
 
 
 export default {
