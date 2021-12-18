@@ -1,0 +1,25 @@
+{
+  "name": "vite-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "server": "nodemon server.js --ignore 'client/' ",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.5.0",
+    "nodemon": "^2.0.15"
+  }
+}
