@@ -1,17 +1,23 @@
 <template>
+    <link rel="stylesheet" href="https://pagecdn.io/lib/font-awesome/5.10.0-11/css/all.min.css" />
     <transition name="fade">
         <span
             v-if="loading"
-            class="text-red-500 opacity-75 fixed top-1/3 left-1/2 my-0 mx-auto block w-0 h-0  "
+            class="text-red-500 opacity-75 fixed top-1/3 left-1/2 my-0 mx-auto block w-0 h-0"
         >
             <i class="fas fa-circle-notch fa-spin fa-5x"></i>
         </span>
     </transition>
     <div class="m-6 space-y-3.5">
-        <h1 class="font-extrabold text-red-500 text-3xl">Products</h1>
-        <link rel="stylesheet" href="https://pagecdn.io/lib/font-awesome/5.10.0-11/css/all.min.css" />
+        <div class="flex justify-between">
+            <h1 class="font-extrabold text-red-500 text-3xl">Products</h1>
+            <button
+                @click="$router.push('/')"
+                class="p-2 block rounded text-white bg-red-500 hover:bg-red-400"
+            >Back</button>
+        </div>
 
-        <div class="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-6">
+        <div class="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-6">
             <div
                 v-for="product in products"
                 :key="product.id"
@@ -27,7 +33,9 @@
                             class="text-slate-200 font-bold text-2xl line-clamp-1"
                         >{{ product.title }}</h1>
                         <p class="mt-2 text-gray-300 text-sm line-clamp-4">{{ product.description }}</p>
-                        <div class="flex item-center justify-between mt-3">
+                        <div
+                            class="xs:block sm:flex item-center justify-between xs:mt-1 sm:mt-3 text-xl"
+                        >
                             <h1 class="text-red-500 font-bold text-xl">${{ product.price }}</h1>
                             <button
                                 class="px-3 py-2 bg-indigo-800 hover:bg-indigo-700 text-white text-xs font-bold uppercase rounded"
@@ -37,11 +45,6 @@
                 </div>
             </div>
         </div>
-
-        <button
-            @click="$router.push('/')"
-            class="p-2 block rounded text-white bg-red-500 hover:bg-red-400"
-        >Back</button>
     </div>
 </template> 
 

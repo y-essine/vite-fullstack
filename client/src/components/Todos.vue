@@ -9,26 +9,30 @@
         </span>
     </transition>
     <div class="m-6 space-y-3.5">
-        <div class="sm:flex justify-between">
-            <div>
+        <div>
+            <div class="!flex justify-between">
                 <h1 class="font-extrabold text-red-500 text-3xl">Todos</h1>
+                <button
+                    @click="$router.push('/')"
+                    class="p-2 block rounded hover:transition-all duration-200 text-white bg-red-500 hover:bg-red-500/80"
+                >Back</button>
             </div>
-            <div class="space-x-5 space-y-3">
+            <div class=" w-fit xs:ml-auto sm:mx-auto  space-x-5 space-y-3">
                 <input
                     v-model="description"
                     type="text"
-                    class="inline p-2 hover:transition-all duration-200 rounded focus:outline-none focus:ring-2 text-center focus:ring-red-500 bg-stone-300 placeholder-stone-600"
+                    class="p-2 duration-200 rounded focus:outline-none focus:ring-2 text-center focus:ring-red-500 bg-stone-300 placeholder-stone-600"
                     placeholder="New todo"
                 />
                 <button
                     @click="addItem"
                     :disabled="!description"
-                    class="inline p-2 rounded text-white bg-green-500 hover:bg-green-600"
+                    class="p-2 rounded text-white bg-green-500 hover:bg-green-600"
                 >Add</button>
             </div>
         </div>
 
-        <div class="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-6">
+        <div class="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-6">
             <div
                 v-for="(todo, i) in todos"
                 :key="todo._id"
@@ -60,11 +64,6 @@
                 </div>
             </div>
         </div>
-
-        <button
-            @click="$router.push('/')"
-            class="p-2 block rounded hover:transition-all duration-200 text-white bg-red-500 hover:bg-red-500/80"
-        >Back</button>
     </div>
 </template> 
 
@@ -76,7 +75,7 @@ import axios from 'axios'
 
 let online = true;
 
-let offline_server = 'http://localhost:3000' ;
+let offline_server = 'http://localhost:3000';
 
 let back_server = online ? '' : offline_server;
 
