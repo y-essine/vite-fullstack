@@ -22,3 +22,5 @@ Built using vite with vue3 as the front and express, node, mongodb as the backen
 - cors
 - body-parser 
 - (dev: concurrently, nodemon)
+
+######npm run dev
