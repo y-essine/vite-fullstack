@@ -7,7 +7,8 @@ Built using vite with vue3 as the front and express, node, mongodb as the backen
 
 ## Dependencies
  ***Client:***
-`"dependencies": {\
+```
+"dependencies": {
     "@fortawesome/vue-fontawesome": "^3.0.0-5",  
     "@kyvg/vue3-notification": "^2.3.4",  
     "@tailwindcss/line-clamp": "^0.3.0",  
@@ -27,10 +28,12 @@ Built using vite with vue3 as the front and express, node, mongodb as the backen
     "prettier": "^2.5.1",  
     "tailwindcss": "^3.0.1",  
     "vite": "^2.7.0"  
-  }`  
+  }
+```  
 
 ***Server:***
-`"dependencies": {  
+```
+"dependencies": {  
     "bcrypt": "^5.0.1",  
     "body-parser": "^1.19.1",  
     "cors": "^2.8.5",  
@@ -43,8 +46,9 @@ Built using vite with vue3 as the front and express, node, mongodb as the backen
   "devDependencies": {  
     "concurrently": "^6.5.0",  
     "nodemon": "^2.0.15"  
-  }`
+  }
+  ```
 
-Run cmd: `npm run dev`
+Run command: `npm run dev`
 
 
