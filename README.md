@@ -5,7 +5,7 @@ A vue web app with a todo list and a show section with products from fakestoreap
 Built using vite with vue3 as the front and express, node, mongodb as the backend.
 
 ## Dependencies
- ***Front-end:*** ***
+ ***Front-end:***
 -vite 
 -vue3, 
 -vue-router
