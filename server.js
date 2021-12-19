@@ -24,6 +24,17 @@ mongoose
 
 app.use('/api/todoListItems', todoListItemRoutes);
 
+
+// set up rate limiter: maximum of five requests per minute
+var RateLimit = require('express-rate-limit');
+var limiter = new RateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 10
+});
+
+// apply rate limiter to all requests
+app.use(limiter);
+
 if (process.env.NODE_ENV == 'production') {
     app.use(express.static('client/dist'));
     app.get('*', (req, res) => {
