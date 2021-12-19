@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import Home from '/src/components/Home.vue'
-import About from '/src/components/About.vue'
-// import Products from '/src/components/Products.vue'
-// import Todos from '/src/components/Todos.vue'
+import Login from '/src/components/Login.vue'
+import Signup from '/src/components/Signup.vue'
 
 const routes = [
     {
@@ -12,20 +11,15 @@ const routes = [
         component: Home,
     },
     {
-        path: '/about',
-        name: 'About',
-        component: About,
+        path: '/login',
+        name: 'Login',
+        component: Login,
     },
     {
-        path: '/products',
-        name: 'Products',
-        component: () => import('/src/components/Products.vue'), //lazy loaded
+        path: '/signup',
+        name: 'Signup',
+        component: Signup,
     },
-    {
-        path: '/todos',
-        name: 'Todos',
-        component: () => import('/src/components/Todos.vue'),
-    }
 ]
 
 const router = createRouter({
