@@ -7,7 +7,7 @@ Built using vite with vue3 as the front and express, node, mongodb as the backen
 
 ## Dependencies
  ***Client:***
-`"dependencies": {  
+`"dependencies": {\
     "@fortawesome/vue-fontawesome": "^3.0.0-5",  
     "@kyvg/vue3-notification": "^2.3.4",  
     "@tailwindcss/line-clamp": "^0.3.0",  
