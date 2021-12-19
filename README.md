@@ -6,17 +6,18 @@ Built using vite with vue3 as the front and express, node, mongodb as the backen
 
 ## Dependencies
  ***Front-end:***
--vite 
--vue3, 
--vue-router
--vuex
--axios
--fontawesome
--tailwindcss
+- vite 
+- vue3, 
+- vue-router
+- vuex
+- axios
+- fontawesome
+- tailwindcss
+
 ***Back-end:***
--node, 
--express
--mongoose
--cors
--body-parser 
--(dev: concurrently, nodemon)
+- node, 
+- express
+- mongoose
+- cors
+- body-parser 
+- (dev: concurrently, nodemon)
