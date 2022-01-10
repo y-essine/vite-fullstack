@@ -22,3 +22,11 @@ Built using vite with vue3 as the front and express, node, mongodb as the backen
 - cors
 - body-parser 
 - (dev: concurrently, nodemon)
+
+## Config
+As seen in the config.js file `mongoUri: process.env.MONGO_URI,`, the database uri is access through the environment variables so in order to set it up 
+use the cmd `export MONGO_URI=<your_uri>` replacing your_uri with yours...
+
+## Running the build
+Run command: `npm run dev`
+
