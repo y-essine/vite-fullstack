@@ -5,7 +5,7 @@
         <input
             v-model="newName"
             type="text"
-            class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-red-500 bg-stone-300"
+            class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-red-500 bg-stone-300 text-neutral-600"
             placeholder="Name"
         />
         <button
