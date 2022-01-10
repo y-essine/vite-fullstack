@@ -4,6 +4,7 @@ Demo: https://vitestack.herokuapp.com/
 ## Description
 A vue web app with a todo list and a show section with products from fakestoreapi.com...
 Built using vite with vue3 as the front and express, node, mongodb as the backend.
+App is also ready for deployment.
 
 ## Dependencies
  ***Front-end:***
