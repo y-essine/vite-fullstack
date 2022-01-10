@@ -1,4 +1,4 @@
-# Vite (Vue3) MEVN stack
+# Vite (Vue3) MEVN-Vite stack
 Demo: https://vitestack.herokuapp.com/
 - [![CodeFactor](https://www.codefactor.io/repository/github/y-essine/vite-stack/badge)](https://www.codefactor.io/repository/github/y-essine/vite-stack)
 ## Description
