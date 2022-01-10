@@ -1,7 +1,7 @@
 <template>
     <div class="m-6 space-y-3.5">
         <h1 class="font-extrabold text-red-500 text-3xl">Home</h1>
-        <p class="text-slate-300">Mothafucka name : {{ name }}</p>
+        <p class="text-slate-300">Name : {{ name }}</p>
         <input
             v-model="newName"
             type="text"

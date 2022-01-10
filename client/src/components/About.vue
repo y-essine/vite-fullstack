@@ -7,7 +7,7 @@
                 class="p-2 block rounded text-white bg-red-500 hover:bg-red-500/80"
             >Back</button>
         </div>
-        <p class="text-slate-300">The mothafucka named {{ name }} is a real nigga</p>
+        <p class="text-slate-300">The person named {{ name }} is...</p>
     </div>
 </template>
 
