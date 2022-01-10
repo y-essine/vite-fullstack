@@ -1,5 +1,7 @@
 # Vite (Vue3) MEVN stack
-Demo: https://vitestack.herokuapp.com/
+~~Demo: https://vitestack.herokuapp.com/~~  
+**Code is _updated_, 
+currently fixing deployment issues...**
 - [![CodeFactor](https://www.codefactor.io/repository/github/y-essine/vite-stack/badge)](https://www.codefactor.io/repository/github/y-essine/vite-stack)
 ## Description
 A vue web app with a todo list and a show section with products from fakestoreapi.com...
