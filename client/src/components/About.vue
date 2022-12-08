@@ -12,14 +12,13 @@
 </template>
 
 
-<script setup>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+<script>
+import { mapState } from 'vuex'
 
-const store = useStore()
-
-const name = computed(() => {
-    return store.state.user.name
-})
-
+export default {
+    name: 'About',
+    computed: {
+        ...mapState('user', ['name'])
+    },
+}
 </script>

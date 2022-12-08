@@ -1,16 +1,16 @@
 export default {
-    state: () => ({
-        name: 'Big Smoke'
-    }),
-    getters: {},
+    namespaced: true,
+    state: {
+        name: 'Big Smoke',
+    },
     mutations: {
-        SET_NAME(state, payload){
-            state.name = payload
+        SET_NAME(state, name) {
+            state.name = name
         }
     },
     actions: {
-        saveName({ commit }, data) {
-            commit('SET_NAME', data)
+        setName({ commit }, name) {
+            commit('SET_NAME', name)
         }
     }
 }
