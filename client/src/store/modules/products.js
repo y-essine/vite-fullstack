@@ -1,3 +1,5 @@
+import Products from '@/services/Products'
+
 export default {
     namespaced: true,
     state: {
@@ -17,7 +19,21 @@ export default {
         }
     },
     actions: {
-        loadProducts({ commit }) {
+        async fetchProducts({ commit }, category) {
+            commit('SET_IS_LOADING', true);
+            commit('SET_IS_LOADED', false);
+
+            await Products.getByCategory(category)
+                .then(response => {
+                    commit('SET_PRODUCTS', response.data);
+                    commit('SET_IS_LOADING', false);
+                    commit('SET_IS_LOADED', true);
+                })
+                .catch(error => {
+                    console.log(error);
+                    commit('SET_IS_LOADING', false);
+                    commit('SET_IS_LOADED', false);
+                });
         }
     }
 }

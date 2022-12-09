@@ -1,0 +1,33 @@
+:root {
+    @apply bg-[#1d1d1d];
+
+    @apply text-slate-300;
+
+    input {
+        @apply bg-stone-300 text-neutral-600 rounded focus:outline-none p-2;
+    }
+}
+
+.page-title {
+    @apply font-extrabold text-3xl text-red-500 hover:text-red-500/80 cursor-default;
+}
+
+.btn {
+    @apply text-white cursor-pointer rounded p-2;
+
+    &.red {
+        @apply bg-red-500 hover:bg-red-500/80;
+    }
+
+    &.indigo {
+        @apply bg-indigo-600 hover:bg-indigo-700;
+    }
+
+    &.cyan {
+        @apply bg-cyan-700 hover:bg-cyan-800;
+    }
+
+    &.orange {
+        @apply bg-orange-500 hover:bg-orange-600;
+    }
+}

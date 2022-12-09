@@ -1,7 +1,7 @@
 export default {
     namespaced: true,
     state: {
-        name: 'Big Smoke',
+        name: 'Mike Tyson',
     },
     mutations: {
         SET_NAME(state, name) {

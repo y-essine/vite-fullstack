@@ -1,11 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import router from '@/router';
+import store from '@/store';
 
-import router from './router'
-import store from './store'
-import notifications from '@kyvg/vue3-notification'
+import notifications from '@kyvg/vue3-notification';
 
-import './index.css'
+import App from '@/App.vue';
+
+import '@/index.css';
 
 createApp(App)
 .use(router)

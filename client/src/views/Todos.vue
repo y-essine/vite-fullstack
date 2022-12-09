@@ -1,5 +1,4 @@
 <template>
-    <link rel="stylesheet" href="https://pagecdn.io/lib/font-awesome/5.10.0-11/css/all.min.css" />
     <transition name="fade">
         <span
             v-if="loading"
@@ -8,15 +7,8 @@
             <i class="fas fa-circle-notch fa-spin fa-5x"></i>
         </span>
     </transition>
-    <div class="m-6 space-y-3.5">
+    
         <div>
-            <div class="!flex justify-between">
-                <h1 class="font-extrabold text-red-500 text-3xl">Todos</h1>
-                <button
-                    @click="$router.push('/')"
-                    class="p-2 block rounded hover:transition-all duration-200 text-white bg-red-500 hover:bg-red-500/80"
-                >Back</button>
-            </div>
             <div class=" w-fit xs:ml-auto sm:mx-auto  space-x-5 space-y-3">
                 <input
                     v-model="description"
@@ -64,7 +56,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template> 
 
 
