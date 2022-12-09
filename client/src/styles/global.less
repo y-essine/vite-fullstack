@@ -1,10 +1,20 @@
 :root {
-    @apply bg-[#1d1d1d];
-
-    @apply text-slate-300;
+    @apply bg-[#1d1d1d] text-slate-300 overflow-y-scroll;
 
     input {
         @apply bg-stone-300 text-neutral-600 rounded focus:outline-none p-2;
+    }
+
+    textarea {
+        @apply bg-stone-300 text-neutral-800 rounded focus:outline-none p-2;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-red-500/80 rounded;
     }
 }
 
@@ -12,8 +22,12 @@
     @apply font-extrabold text-3xl text-red-500 hover:text-red-500/80 cursor-default;
 }
 
-.btn {
-    @apply text-white cursor-pointer rounded p-2;
+button.btn {
+    @apply text-slate-100 rounded p-2;
+
+    &:disabled {
+        @apply !bg-stone-700 !text-stone-500;
+    }
 
     &.red {
         @apply bg-red-500 hover:bg-red-500/80;
@@ -29,5 +43,9 @@
 
     &.orange {
         @apply bg-orange-500 hover:bg-orange-600;
+    }
+
+    &.green {
+        @apply bg-green-500 hover:bg-green-600;
     }
 }

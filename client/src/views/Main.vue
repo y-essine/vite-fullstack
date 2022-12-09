@@ -1,10 +1,10 @@
 <template>
-    <div class="p-12 space-y-3.5">
-        <div class="flex justify-between">
+    <div class="p-12">
+        <div class="flex justify-between mb-5">
             <div class="page-title"> {{ currentRoute }} </div>
-            <div v-if="!isHome" @click="goTo('Home')" class="btn bg-red-500 hover:bg-red-500/80">
+            <button v-if="!isHome" @click="goTo('Home')" class="btn red">
                 Back
-            </div>
+            </button>
         </div>
         <router-view />
     </div>
@@ -20,8 +20,11 @@ export default {
         ...mapGetters('routing', ['isHome'])
     },
     methods: {
-        ...mapActions('routing', ['goTo']),
+        ...mapActions('routing', ['goTo', 'initRoute']),
     },
+    created() {
+        this.initRoute();
+    }
 }
 </script>
 

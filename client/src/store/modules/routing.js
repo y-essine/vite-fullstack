@@ -25,6 +25,15 @@ export default {
             } else {
                 console.error(`Route ${routeName} does not exist`);
             }
+        },
+
+        initRoute({ commit, state }) {
+            let route = router.currentRoute.value.name;
+            if (!route || state.routes.includes(route.toUpperCase()) === false) {
+                route = ROUTE_NAMES.HOME;
+                router.push({ name: route });
+            }
+            commit("SET_CURRENT_ROUTE", route);
         }
     },
     getters: {

@@ -1,10 +1,12 @@
 <template>
-    <transition name="fade">
-        <Spinner v-if="isLoading" />
-    </transition>
+    <div>
+        <transition name="fade">
+            <Spinner v-if="isLoading" />
+        </transition>
 
-    <div v-if="(!isLoading && isLoaded)" class="flex flex-wrap justify-center gap-6">
-        <Product v-for="product in products" :key="product.id" :product="product" />
+        <div v-if="(!isLoading && isLoaded)" class="flex flex-wrap justify-evenly gap-6">
+            <Product v-for="product in products" :key="product.id" :product="product" />
+        </div>
     </div>
 </template> 
 
@@ -32,7 +34,6 @@ export default {
     },
 }
 </script>
-
 
 <style scoped>
 .fade-enter-active,

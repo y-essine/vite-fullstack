@@ -1,7 +1,9 @@
 <template>
-    <p>
-        Hi {{ name }}, I hope you're having a great day!
-    </p>
+    <div>
+        <p>
+            Hi {{ name }}, I hope you're having a great day!
+        </p>
+    </div>
 </template>
 
 <script>

@@ -1,18 +1,21 @@
 <template>
-    <p>
-        Name : {{ name }}
-    </p>
-    <input 
-        v-model="newName"
-        type="text"
-        class="focus:ring-2 focus:ring-red-700"
-        placeholder="Name" 
-    /> 
-    <button @click="saveName" class="btn indigo ml-5">Submit</button>
-
-    <button @click="goTo('About')" class="btn red block">About</button>
-    <button @click="goTo('Products')" class="btn cyan block">Products</button>
-    <button @click="goTo('Todos')" class="btn orange block">Todos</button>
+    <div class="space-y-3">
+        <p>
+            Name : {{ name }}
+        </p>
+        <input
+            v-model="newName"
+            type="text"
+            class="focus:ring-2 focus:ring-red-700 w-48 mr-3"
+            placeholder="Name"
+        />
+        <button @click="saveName" class="btn indigo w-32">Submit</button>
+        <div class="space-y-3 w-48">
+            <button @click="goTo('About')" class="btn red block w-full">About</button>
+            <button @click="goTo('Products')" class="btn cyan block w-full">Products</button>
+            <button @click="goTo('Todos')" class="btn orange block w-full">Todos</button>
+        </div>
+    </div>
 </template> 
 
 <script>
