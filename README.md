@@ -44,3 +44,7 @@ code .
 ```shell
 npm run dev
 ```
+
+## Preview
+
+![preview](https://i.imgur.com/vxbShdj.png)
