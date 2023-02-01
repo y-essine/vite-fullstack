@@ -123,7 +123,13 @@ export default {
         },
     },
     mounted() {
-        this.fetchTodos()
+        this.fetchTodos().catch(() => {
+            this.$notify({
+                title: 'Error',
+                text: 'Something went wrong',
+                type: 'error',
+            })
+        })
     },
 }
 </script>
