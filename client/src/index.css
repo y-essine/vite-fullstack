@@ -4,7 +4,8 @@
 
 @tailwind utilities;
 
-:root{
-    background-color: #1d1d1d;
+@layer base {
+    :root {
+        @apply text-zinc-200 font-sans;
+    }
 }
-
