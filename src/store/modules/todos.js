@@ -1,4 +1,4 @@
-import Todos from '@/services/todos';
+import Todos from '@/services/Todos';
 import getRandomEmoji from '@/helpers/randomEmoji';
 
 const todosList = [
