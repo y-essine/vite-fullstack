@@ -1,7 +1,14 @@
-# Vue 3 + Vite
+# MEVN fullstack app frontend
+This is the frontend for the MEVN stack app.
+## Description
+A vue web app with a todo list and a show section with products from fakestoreapi.com...
+Built using vite with vue3 as the front and express, node, mongodb as the backend.
+App is also ready for deployment.
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## Recommended IDE Setup
+## Config
+As seen in the config.js file `mongoUri: process.env.MONGO_URI,`, the database uri is access through the environment variables so in order to set it up 
+use the cmd `export MONGO_URI=<your_uri>` replacing your_uri with yours...
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## Running the frontend
+Run command: `npm i && npm run dev`
