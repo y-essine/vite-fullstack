@@ -3,3 +3,9 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer base {
+    :root {
+        @apply text-zinc-200 font-sans;
+    }
+}

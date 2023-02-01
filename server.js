@@ -5,6 +5,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const { PORT, mongoUri } = require('./config');
 
@@ -22,7 +24,7 @@ mongoose
     })
     .catch((err) => console.log(err));
 
-app.use('/api/todoListItems', todoListItemRoutes);
+app.use('/api/todos', todoListItemRoutes);
 
 
 // set up rate limiter: maximum of five requests per minute

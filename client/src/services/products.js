@@ -1,4 +1,4 @@
-import { FakeStoreApi } from '@/services/Api';
+import { FakeStoreApi } from '@/services/api';
 
 export default {
     getByCategory(params) {

@@ -1,45 +1,48 @@
 <template>
-    <transition name="fade">
-        <Spinner v-if="isLoading" />
-    </transition>
-
     <div class="mb-12">
-        <div class=" w-fit xs:ml-auto sm:mx-auto  space-x-5 space-y-3">
-            <input v-model="newDescription" type="text" class="focus:ring-2 text-center focus:ring-green-700"
-                placeholder="New todo name..." />
-            <button :disabled="!newDescription" class="btn green">
+        <div class="w-fit xs:ml-auto sm:mx-auto space-x-5 space-y-3">
+            <input
+                v-model="newDescription"
+                type="text"
+                class="focus:ring-2 text-center focus:ring-green-700"
+                placeholder="New todo name..."
+            />
+            <button :disabled="disabledState" class="btn green" @click="add">
                 Add
             </button>
         </div>
     </div>
 
-    <div class="flex flex-wrap justify-evenly gap-6">
-        <Todo v-for="todo in todos" :key="todo._id" :todo="todo" @select="select" @unselect="unselect"/>
+    <transition name="fade">
+        <Spinner v-if="isLoading" />
+    </transition>
+    <div
+        class="flex flex-wrap justify-evenly gap-6"
+        v-if="!isLoading && isLoaded"
+    >
+        <Todo
+            v-for="(todo, i) in todos"
+            :key="todo._id"
+            :index="i"
+            :todo="todo"
+            @select="select"
+            @unselect="unselect"
+            @edit="edit"
+            @remove="remove"
+        />
     </div>
-</template> 
-
+</template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 
-import Todo from '@/components/Todo.vue';
-import Spinner from '@/components/utils/Spinner.vue';
-
-import axios from 'axios';
-
-let online = true;
-
-let offline_server = 'http://localhost:3000';
-
-let back_server = online ? '' : offline_server;
-
+import Todo from '@/components/Todo.vue'
+import Spinner from '@/components/utils/Spinner.vue'
 
 export default {
     data() {
         return {
-            newDescription: "",
-            editedDescription: "",
-            selected: {},
+            newDescription: '',
         }
     },
     components: {
@@ -47,67 +50,80 @@ export default {
         Spinner,
     },
     computed: {
-        ...mapState('todos', ['todos', 'isLoading', 'isLoaded']),
+        ...mapState('todos', ['todos', 'isLoading', 'isLoaded', 'isEditing']),
+
+        disabledState() {
+            return (
+                this.isLoading ||
+                !this.isLoaded ||
+                this.isEditing ||
+                this.newDescription.trim().length === 0 ||
+                this.newDescription.trim().length > 30
+            )
+        },
     },
     methods: {
-        ...mapActions('todos', ['fetchTodos', 'selectTodo', 'unselectTodo', 'addTodo', 'updateTodo', 'deleteTodo']),
+        ...mapActions('todos', [
+            'fetchTodos',
+            'selectTodo',
+            'unselectTodo',
+            'addTodo',
+            'updateTodo',
+            'deleteTodo',
+        ]),
 
         select(todo) {
-            this.selectTodo(todo);
+            this.selectTodo(todo)
         },
 
         unselect() {
-            this.unselectTodo();
+            console.log('unselected')
+            this.unselectTodo()
         },
 
         edit(todo) {
             this.updateTodo({
-                id: todo._id,
-                description: this.editedDescription,
-            });
-            this.unselect();
-        }
-
-        // async addItem() {
-        //     const res = await axios.post(
-        //         back_server + '/api/todoListItems/', { description: this.description }
-        //     )
-        //     this.todos.push(res.data);
-        //     this.description = "";
-        // },
-        // async removeItem(todo, i) {
-        //     await axios.delete(back_server + '/api/todoListItems/' + todo._id);
-        //     this.todos.splice(i, 1);
-        // },
-        // async editItem(todo, i) {
-        //     const res = await axios.put(back_server + '/api/todoListItems/' + todo._id, { description: this.editedDescription });
-        //     this.todos[i] = res.data;
-        //     this.unselect();
-        // },
-        // select(todo) {
-        //     this.selected = todo;
-        //     this.editedDescription = todo.description;
-        // },
-        // unselect() {
-        //     this.selected = {};
-        //     this.editedDescription = {};
-        // },
-        // isSelected(todo) {
-        //     return this.selected._id == todo._id
-        // }
+                _id: todo._id,
+                description: todo.description,
+            }).then(() => {
+                this.$notify({
+                    title: 'Success',
+                    text: 'Todo updated!',
+                    type: 'success',
+                })
+                this.unselect()
+            })
+        },
+        remove(todo) {
+            this.deleteTodo(todo).then(() => {
+                this.$notify({
+                    title: 'Success',
+                    text: 'Todo deleted!',
+                    type: 'success',
+                })
+            })
+        },
+        add() {
+            if (this.disabledState)
+                return this.$notify({
+                    title: 'Error',
+                    text: 'Todo description must be between 1 and 30 characters',
+                    type: 'error',
+                })
+            this.addTodo({
+                description: this.newDescription.trim(),
+            }).then(() => {
+                this.$notify({
+                    title: 'Success',
+                    text: 'Todo added!',
+                    type: 'success',
+                })
+                this.newDescription = ''
+            })
+        },
     },
-    async created() {
-        // try {
-        //     const res = await axios.get(
-        //         back_server + '/api/todoListItems/'
-        //     )
-        //     this.loading = false;
-        //     this.todos = res.data
-
-
-        // } catch (e) {
-        //     console.error(e)
-        // }
+    mounted() {
+        this.fetchTodos()
     },
 }
 </script>
