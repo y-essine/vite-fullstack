@@ -87,12 +87,8 @@ export default {
                     commit('SET_TODOS', r.data);
                     commit('SET_IS_LOADING', false);
                     commit('SET_IS_LOADED', true);
+                    console.log("success");
                 })
-                .catch(error => {
-                    console.log(error);
-                    commit('SET_IS_LOADING', false);
-                    commit('SET_IS_LOADED', false);
-                });
         },
         updateTodo: async ({ commit }, todo) => {
             commit('SET_IS_EDITING', true)
