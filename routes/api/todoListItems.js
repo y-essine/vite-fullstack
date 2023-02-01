@@ -4,14 +4,13 @@ const TodoListItem = require('../../models/TodoListItem');
 const router = Router();
 
 
-router.get('/', async (req, res) => {
+router.get('/all', async (req, res) => {
     try {
-        const todoListItems = await TodoListItem.find();
-        if (!todoListItems) throw new Error('No items');
-        const sorted = todoListItems.sort((a, b) => {
-            return new Date(a.date).getTime() - new Date(b.date).getTime();
-        })
-        res.status(200).json(sorted);
+        const reqLimit = req.query.limit ? parseInt(req.query.limit) : null;
+        const limit = reqLimit && reqLimit <=40 ? reqLimit : 10;
+        const items = await TodoListItem.find({}).sort({ date: -1 }).limit(limit);
+        if (!items) throw new Error('No items');
+        res.status(200).json(items);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

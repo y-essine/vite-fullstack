@@ -4,11 +4,8 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "server": "nodemon server.js --ignore 'client/' ",
-    "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server.js",
-    "build": "npm install --prefix client && npm run build --prefix client"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +13,7 @@
   "dependencies": {
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-rate-limit": "^5.5.1",
     "mongoose": "^6.4.6",
