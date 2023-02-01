@@ -4,10 +4,10 @@ const fakeStoreApiURL = 'https://fakestoreapi.com/products/';
 
 const FakeStoreApi = axios.create({
     baseURL: fakeStoreApiURL
-});
+})
 
 const Api = axios.create({
-    baseURL: 'http://localhost:3000/api/'
+    baseURL: import.meta.env.VITE_ONLINE_URL || 'http://localhost:3000/api/'
 });
 
 Api.interceptors.response.use(
