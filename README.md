@@ -5,7 +5,7 @@ This is the frontend for the MEVN stack app.
 
 [Frontend deployed here (vite-fullstack.vercel.app)](https://vite-fullstack.vercel.app)
 
-[Backend repo](https://www.google.com)
+[Backend repo](https://github.com/y-essine/vite-fullstack-backend)
 
 ## Description
 A vue web app with a todo list and a show section with products from fakestoreapi.com...
